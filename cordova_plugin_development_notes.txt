@@ -1,0 +1,60 @@
+
+-- Refer to: http://moduscreate.com/plugin-authoring-cordova-6-ios-android/
+
+$ npm view plugman@'>1.1.0' name
+
+$ sudo npm install -g plugman
+
+$ plugman --version
+
+-- create the new plugin skeleton project
+$ cd /Users/hOOnbOOn/Documents/task/workspace/cordova/plugin
+
+$ plugman create --name HbEcho --plugin_id com-hoonboon-plugins-echo --plugin_version 0.0.1
+
+$ ls -l HbEcho
+
+-- create test app to test new plugin
+$ cordova create testapp com.hoonboon.testapp TestApp
+
+$ cd testapp
+
+$ cordova platform add android
+
+$ cordova plugin add ../plugin/HbEcho
+
+$ cordova plugin ls
+
+$ find platforms/android | grep HbEcho.java
+
+-- test android
+$ cordova build android
+
+-- assign execution right for hooks scripts
+$ chmod 755 hooks/after_plugin_add.js
+
+-- remove and add back plugin to refresh files
+$ cordova plugin rm com-hoonboon-plugins-echo
+
+$ cordova plugin add ../plugin/HbEcho/
+
+
+-- Add new project into GitHub
+  - Refer to https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+  - Create new GitHub repo: https://github.com/hoonboon/demo-cordova-plugin-01.git
+
+$ cd /Users/hOOnbOOn/Documents/task/workspace/cordova/plugin/HbEcho
+$ git init
+$ git add .
+$ git rm -f -- *.DS_Store
+$ git commit -m "Initial creation"
+$ git remote add origin https://github.com/hoonboon/demo-cordova-plugin-01.git
+$ git remote -v
+$ git push -u origin master
+
+  - Paste local repository folder into Eclipse Git Repositories.
+  
+  - Import only new project root into Eclipse with "Detect and configure project nature" UNCHECKED.
+
+
