@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com-hoonboon-plugins-echo" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>HbEcho</name>
+    <description>Modus Create Demo Cordova Plugin</description>
+	<license>MIT</license>
+	<keywords>cordova,plugin,demo</keywords>
+	
+    <js-module name="HbEcho" src="www/HbEcho.js">
+        <clobbers target="hbecho" />
+    </js-module>
+    
+    <engines>
+	  <engine name="cordova-android" version=">=4.0.0" />
+	</engines>
+	    
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="HbEcho">
+                <param name="android-package" value="com.hoonboon.plugin.HbEcho" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/HbEcho.java" 
+            target-dir="src/com/hoonboon/plugin" />
+    </platform>
+    
+    <hook type="after_plugin_add" src="hooks/after_plugin_add.js" />
+    
+</plugin>
