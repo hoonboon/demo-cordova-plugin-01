@@ -58,3 +58,10 @@ $ git push -u origin master
   - Import only new project root into Eclipse with "Detect and configure project nature" UNCHECKED.
 
 
+-- Remove existing plugin and add from GitHub "master" branch
+$ cordova plugin rm com-hoonboon-plugins-echo
+
+$ cordova plugin add https://github.com/hoonboon/demo-cordova-plugin-01#master
+
+
+
