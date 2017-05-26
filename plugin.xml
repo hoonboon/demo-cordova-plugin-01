@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="com-hoonboon-plugins-echo" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="com-hoonboon-plugins-echo" version="0.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>HbEcho</name>
-    <description>Modus Create Demo Cordova Plugin</description>
+    <description>Create Demo Cordova Plugin</description>
 	<license>MIT</license>
 	<keywords>cordova,plugin,demo</keywords>
 	
@@ -11,6 +11,7 @@
     
     <engines>
 	  <engine name="cordova-android" version=">=4.0.0" />
+      <engine name="cordova-ios" version=">=3.0.0" />
 	</engines>
 	    
     <platform name="android">
@@ -21,6 +22,16 @@
         </config-file>
         <source-file src="src/android/HbEcho.java" 
             target-dir="src/com/hoonboon/plugin" />
+    </platform>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="HbEcho">
+                <param name="ios-package" value="HbEcho" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/HbEcho.h" />
+        <source-file src="src/ios/HbEcho.m" />
     </platform>
     
     <hook type="after_plugin_add" src="hooks/after_plugin_add.js" />
